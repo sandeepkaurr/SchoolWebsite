@@ -83,23 +83,34 @@ nav {
   transition: 2s;
 }
 
-div.gallery {
-  margin: 5px;
-  margin-left: 20px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 180px;
-}
-div.gallery:hover {
-  border: 2px solid #777;
-}
-
-div.gallery img {
-  width: 100%;
-  height: auto;
+.gallery {
+  position: relative;
+  top: -55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  background-image: radial-gradient(white, purple);
+  height: 500px;
 }
 
-div.desc {
+.gallery img {
+  max-width: 600px;
+  max-height: 400px;
+  margin: 0 10px;
+  border: 1px solid gray;
+}
+
+.gallery button {
+  background-color: #333;
+  font-size: 20px;
+  color: white;
+  border: 1px solid white;
   padding: 15px;
-  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.gallery button:hover {
+  background-color: grey;
 }

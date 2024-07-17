@@ -1,14 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
+const images = [
+  "https://res.cloudinary.com/jerrick/image/upload/d_642250b563292b35f27461a7.png,f_jpg,fl_progressive,q_auto,w_1024/6538a59979b38b001da271fd.jpg",
+  "https://jischoolerp.com/blog/image/13/post-1530508718-image_fileuser_id_2.png",
+  "https://appedology.com/uploads/images/2021/02/importance-of-school-management-system_750x.jpg",
+  // "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf5t9PQ1flVvKpMb4jbf5c3ulAbRtRYpepng&s",
+  "https://repository-images.githubusercontent.com/320789182/05666c80-6fbe-11eb-8159-9c143259a9aa",
+  "https://theknowledgereview.com/wp-content/uploads/2021/11/management-software.jpg",
+  "https://codecanyon.img.customer.envatousercontent.com/files/488823188/inline.jpg?auto=compress%2Cformat&q=80&fit=crop&crop=top&max-h=8000&max-w=590&s=e265530afaa54a6937a36a4fbe7b3dfe",
+];
 function Gallery() {
+  const [currentImage, setCurrentImage] = useState(0);
+  const nextImage = () => {
+    setCurrentImage((prevImage) => (prevImage + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImage(
+      (prevImage) => (prevImage - 1 + images.length) % images.length
+    );
+  };
+
   return (
     <>
-      <div div style="background-image: radial-gradient(green,white);">
-        {" "}
-      </div>
       <nav>
-        <a href="index.html">
-          <img src="images/WhatsApp Image 2024-07-10 at 23.00.33_2135f5d7.jpg" />
+        <a href="Home.html">
+          <img
+            src="WhatsApp Image 2024-07-10 at 23.00.33_2135f5d7.jpg"
+            alt="img"
+          />
         </a>
         <div className="nav-links">
           <ul>
@@ -21,7 +41,7 @@ function Gallery() {
               <a href="">Abouts</a>
             </li>
             <li>
-              <a href="">
+              <a href="Gallery.js">
                 <b>Gallery</b>
               </a>
             </li>
@@ -49,53 +69,10 @@ function Gallery() {
           </ul>
         </div>
       </nav>
-      <div class="container">
-        {/* <div class="jumbotron p-25 m-25 bg-secondary"> */}
-        <h1 style="text-align: center  ;  color:palegreen">Image Gallery</h1>
-        <p style="text-align: center; font-size: medium; color: white; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
-          Images of school events
-        </p>
-      </div>
-      {/* </div> */}
-      <div class="gallery">
-        <a target="_blank" href="./images/college-2883655_1280.jpg">
-          <img
-            src="./images/college-2883655_1280.jpg "
-            width="600"
-            height="600"
-          ></img>
-        </a>
-        <div class="desc">Lorem ipsum dolor sit amet.</div>
-      </div>
-      <div class="gallery">
-        <a target="_blank" href="./images/college-2883655_1280.jpg">
-          <img src="./images/istockphoto-1162166565-612x612.jpg "></img>
-        </a>
-        <div class="desc">Lorem ipsum dolor sit amet.</div>
-      </div>
-      <div class="gallery">
-        <a target="_blank" href="./images/university-105709_1280.jpg">
-          <img src="./images/university-105709_1280.jpg"></img>
-        </a>
-        <div class="desc">Lorem ipsum dolor sit amet.</div>
-      </div>
-      <div class="gallery">
-        <a target="_blank" href="./images/university-2704306_640.jpg">
-          <img src="./images/university-2704306_640.jpg "></img>
-        </a>
-        <div class="desc">Lorem ipsum dolor sit amet.</div>
-      </div>
-      <div class="gallery">
-        <a target="_blank" href="./images/university-2704306_640.jpg">
-          <img src="./images/university-2704306_640.jpg "></img>
-        </a>
-        <div class="desc">Lorem ipsum dolor sit amet.</div>
-      </div>{" "}
-      <div class="gallery">
-        <a target="_blank" href="./images/student-4369850_1280.jpg">
-          <img src="./images/student-4369850_1280.jpg "></img>
-        </a>
-        <div class="desc">Lorem ipsum dolor sit amet.</div>
+      <div className="gallery">
+        <button onClick={prevImage}>&lt;</button>
+        <img src={images[currentImage]}></img>
+        <button onClick={nextImage}>&gt;</button>
       </div>
     </>
   );

@@ -1,18 +1,16 @@
 import React from "react";
-import Gallery from "./Gallery";
-import { Routes, Route } from "react-router-dom";
 
 import "./style.css";
 function Indexx() {
   return (
     <>
-      <Routes>
-        <Route path="/Gallery" Component={Gallery.js}></Route>
-      </Routes>
       <section className="header">
         <nav>
           <a href="Home.html">
-            <img src="WhatsApp Image 2024-07-10 at 23.00.33_2135f5d7.jpg"></img>
+            <img
+              src="WhatsApp Image 2024-07-10 at 23.00.33_2135f5d7.jpg"
+              alt="img"
+            />
           </a>
           <div className="nav-links">
             <ul>
